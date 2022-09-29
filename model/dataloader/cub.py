@@ -21,12 +21,12 @@ ROOT_PATH2 = osp.abspath(osp.join(THIS_PATH, '..', '..'))
 
 
 class CUB(BaseDataset):
-    IMAGE_PATH = search_dir([osp.join(r, 'cub/images') for r in ROOT_DIRS])
-    SPLIT_PATH = osp.join(ROOT_PATH2, 'data/cub/split')
-    CACHE_PATH = osp.join(ROOT_PATH2, '.cache/')
 
     def __init__(self, setname, unsupervised, args, augment='none'):
         super().__init__(setname, unsupervised, args, augment)
+        self.IMAGE_PATH = osp.join(args.data_root, 'cub/images')
+        self.SPLIT_PATH = osp.join(ROOT_PATH2, 'data/cub/split')
+        self.CACHE_PATH = osp.join(ROOT_PATH2, '.cache/')
 
     @property
     def image_size(self):

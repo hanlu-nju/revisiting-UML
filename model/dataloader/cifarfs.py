@@ -6,7 +6,6 @@ import pickle
 import numpy as np
 from .base import BaseDataset
 from torchvision import transforms
-from .base import ROOT_DIRS, search_dir
 
 
 # THIS_PATH = osp.dirname(__file__)
@@ -39,7 +38,7 @@ def load_data(file):
 class CIFARFS(BaseDataset):
 
     def __init__(self, setname, unsupervised, args, augment='none'):
-        self.DATA_PATH = search_dir([osp.join(r, 'CIFAR-FS') for r in ROOT_DIRS])
+        self.DATA_PATH = osp.join(args.data_root, 'CIFAR-FS')
         super().__init__(setname, unsupervised, args, augment)
 
     @property

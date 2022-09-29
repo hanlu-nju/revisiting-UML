@@ -14,12 +14,14 @@ data_dirs = [
 
 
 class MiniImageNet(BaseDataset):
-    IMAGE_PATH1 = search_dir([osp.join(r, di, 'images') for r in ROOT_DIRS for di in data_dirs])
-    SPLIT_PATH = osp.join(ROOT_PATH, 'data/miniimagenet/split')
-    CACHE_PATH = osp.join(ROOT_PATH, '.cache/')
-
     """ Usage:
     """
+
+    def __init__(self, setname, unsupervised, args, augment='none'):
+        self.IMAGE_PATH1 = search_dir([osp.join(args.data_root, di, 'images') for di in data_dirs])
+        self.SPLIT_PATH = osp.join(ROOT_PATH, 'data/miniimagenet/split')
+        self.CACHE_PATH = osp.join(ROOT_PATH, '.cache/')
+        super().__init__(setname, unsupervised, args, augment)
 
     @property
     def image_size(self):

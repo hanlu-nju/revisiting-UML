@@ -4,7 +4,6 @@ import pickle
 import numpy as np
 
 from .base import BaseDataset
-from .base import ROOT_DIRS, search_dir
 
 
 # THIS_PATH = osp.dirname(__file__)
@@ -27,7 +26,7 @@ def load_data(file):
 class FC100(BaseDataset):
 
     def __init__(self, setname, unsupervised, args, augment='none'):
-        self.DATA_PATH = search_dir([osp.join(r, 'FC100') for r in ROOT_DIRS])
+        self.DATA_PATH = osp.join(args.data_root, 'FC100')
         super().__init__(setname, unsupervised, args, augment)
 
     @property
@@ -47,4 +46,3 @@ class FC100(BaseDataset):
     @property
     def image_size(self):
         return 32
-

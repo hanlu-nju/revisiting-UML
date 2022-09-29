@@ -312,7 +312,7 @@ def postprocess_args(args, train=True):
 
         if args.model_class == 'TSPHead':
             save_path2 = 'h{}_l{}_do{}_d{}_'.format(args.t_heads, args.t_layers,
-                                                        args.t_dropout, args.t_dim) + save_path2
+                                                    args.t_dropout, args.t_dim) + save_path2
 
     else:
         save_path1 = 'eval-%s' % ('-'.join([args.eval_dataset, model_name, args.backbone_class,
@@ -343,6 +343,7 @@ def get_command_line_parser():
 
     parser.add_argument('--dataset', type=str, default='MiniImageNet',
                         choices=['MiniImageNet', 'TieredImageNet', 'CUB', 'FC100', 'CIFAR-FS'])
+    parser.add_argument('--data_root', type=str, default='./data')
     parser.add_argument('--class_number', type=int, default=64)
 
     parser.add_argument('--eval_dataset', type=str, default=None)

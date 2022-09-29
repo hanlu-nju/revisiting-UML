@@ -23,7 +23,7 @@ def search_dir(dirs):
     data_dir = None
 
     for d in dirs:
-        # print(f'searching {d}')
+        print(f'searching {d}')
         if os.path.exists(d) and os.path.isdir(d):
             data_dir = d
             break
@@ -34,14 +34,15 @@ def search_dir(dirs):
 
 
 ROOT_DIRS = [
-    '/data/Few-Shot/data/',
-    '/home/hanlu/data/', # add your possible data directory here
-    '/data/hanlu/',
-    '/home/yehj/Few-Shot/data/',
-    '/home/amax/data/',
-    '/home/lamda3/data/',
-    '/data/yangy/',
+    # '/data/Few-Shot/data/',
+    # '/home/hanlu/data/',  # add your possible data directory here
+    # '/data/hanlu/',
+    # '/home/yehj/Few-Shot/data/',
+    # '/home/amax/data/',
+    # '/home/lamda3/data/',
+    # '/data/yangy/',
 ]
+
 
 
 def identity(x):

@@ -23,11 +23,11 @@ Experimental results on few-shot learning datasets with ResNet-12 backbone (Same
 
 **MiniImageNet Dataset with ResNet-12**
 
-| (way,shot) |  (5,1) |  (5,5) | (5,20) | (5,50) |
-|:----------:|:------:|:------:|:------:|:------:|
-|  baseline  | 56.74  | 74.05  | 81.24  | 83.04  |
-|  TSP-Head  | 56.99  | **75.89**  | **83.77**  | **85.72**  |
-|     HMS    | **58.20**  | 75.77  | 82.69  | 84.41  |
+| (way,shot) |  (5,1) |  (5,5) | (5,20) | (5,50) | checkpoint                                                                                         |
+|:----------:|:------:|:------:|:------:|:------:|----------------------------------------------------------------------------------------------------|
+|  baseline  | 56.74  | 74.05  | 81.24  | 83.04  | [google drive](https://drive.google.com/file/d/1JLzVOUN-VSM2AesIorB8-tE0TsFol2aY/view?usp=sharing)                                                                                   |
+|  TSP-Head  | 56.99  | **75.89**  | **83.77**  | **85.72**  | [google drive](https://drive.google.com/file/d/1ZTbmdPY5ClgLv8CAlVSonZ0HGjEUFHRO/view?usp=sharing) |
+|     HMS    | **58.20**  | 75.77  | 82.69  | 84.41  | [google drive](https://drive.google.com/file/d/1ac9iPsUFAeZrkOGgBf_A2QOJyI12IYjS/view?usp=sharing) |
 
 ## Prerequisites
 
