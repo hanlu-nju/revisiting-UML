@@ -71,6 +71,8 @@ The train.py takes the following command line options (details are in the `model
 **Task Related Arguments**
 - `dataset`: Option for the dataset (`MiniImageNet`, `TieredImageNet`,`CIFAR-FS` , `FC100` , or `CUB`), default to `MiniImageNet`
 
+- `data_root`: root directory for the dataset.
+
 - `way`: The number of classes in a few-shot task during meta-training, default to `5`
 
 - `eval_way`: The number of classes in a few-shot task during meta-test, default to `5`
