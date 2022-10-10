@@ -151,8 +151,8 @@ class FSLTrainer(Trainer):
 
         # train mode
         self.model.train()
-        if self.args.fix_running:
-            self.model.encoder.eval()
+        # if self.args.fix_running:
+        #     self.model.encoder.eval()
 
         return vl, va, vap
 

@@ -153,7 +153,7 @@ Arguments for HMS:
 
 Running the command without arguments will train the models with the default hyper-parameter values. Loss changes will be recorded as a tensorboard file.
 
-## Training scripts for FEAT
+## Training scripts
 
 For example, to train UML baseline with ResNet-12 backbone on MiniImageNet:
 
