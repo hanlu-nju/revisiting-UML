@@ -74,8 +74,8 @@ def get_dataloader(args):
                                   batch_sampler=train_sampler,
                                   pin_memory=True)
 
-    valset = get_dataset(args.dataset, 'val', args.unsupervised, args)
-    testsets = dict(((n, get_dataset(n, 'test', args.unsupervised, args)) for n in args.eval_dataset.split(',')))
+    valset = get_dataset(args.dataset, 'val', False, args)
+    testsets = dict(((n, get_dataset(n, 'test', False, args)) for n in args.eval_dataset.split(',')))
     args.image_shape = trainset.image_shape
     return train_loader, valset, testsets
 
@@ -146,13 +146,15 @@ def prepare_optimizer(model, args):
                          momentum=args.mom,
                          weight_decay=args.weight_decay)
     else:
-        if args.backbone_class in ['ConvNet']:
+        if args.backbone_class in ['ConvNet'] and args.model_class != "TSPHead":
+            print("using adam")
             optimizer = optim.Adam(
                 param_groups,
                 lr=args.lr,
                 # weight_decay=args.weight_decay, do not use weight_decay here
             )
         else:
+            print("using sgd")
             optimizer = optim.SGD(param_groups,
                                   lr=args.lr,
                                   momentum=args.mom,

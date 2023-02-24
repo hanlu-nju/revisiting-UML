@@ -81,15 +81,9 @@ class Trainer(object, metaclass=abc.ABCMeta):
 
     def eval_process(self, args, epoch):
         valset = self.valset
-        valset.unsupervised = False
-        if args.model_class in ['QsimProtoNet', 'QsimMatchNet']:
-            val_sampler = NegativeSampler(args, valset.label,
-                                          args.num_eval_episodes,
-                                          args.eval_way, args.eval_shot + args.eval_query)
-        else:
-            val_sampler = CategoriesSampler(valset.label,
-                                            args.num_eval_episodes,
-                                            args.eval_way, args.eval_shot + args.eval_query)
+        val_sampler = CategoriesSampler(valset.label,
+                                        args.num_eval_episodes,
+                                        args.eval_way, args.eval_shot + args.eval_query)
         val_loader = DataLoader(dataset=valset,
                                 batch_sampler=val_sampler,
                                 num_workers=args.num_workers,

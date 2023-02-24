@@ -33,10 +33,6 @@ class FewShotModel(nn.Module):
     def construct_encoder(self, args):
         if args.backbone_class == 'ConvNet':
             from model.networks.convnet import convnet
-            self.hdim = 64
-            self.encoder = convnet(True)
-        elif args.backbone_class == 'ConvNetF':
-            from model.networks.convnet import convnet
             self.hdim = 1600
             self.encoder = convnet(False)
         elif args.backbone_class == 'Res12':
@@ -61,6 +57,7 @@ class FewShotModel(nn.Module):
                                        0.5)  # we set the dropout=0.5 directly here, it may achieve better results by tunning the dropout
         else:
             raise ValueError('Unrecognized network structure')
+        print(f"emb size {self.hdim}")
 
     def split_instances_normal(self, num_tasks, num_shot, num_query, num_way, num_class=None):
         num_class = num_way if (num_class is None or num_class < num_way) else num_class
